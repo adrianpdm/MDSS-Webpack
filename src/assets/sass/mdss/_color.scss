@@ -1,0 +1,63 @@
+@mixin color($color) {
+    color: $color;
+}
+
+$color-list: (
+    'grey': $clr-grey,
+    'blue-grey': $clr-blue-grey,
+    'red': $clr-red,
+    'pink': $clr-pink,
+    'purple': $clr-purple,
+    'deep-purple': $clr-deep-purple,
+    'indigo': $clr-indigo,
+    'blue': $clr-blue,
+    'light-blue': $clr-light-blue,
+    'cyan': $clr-cyan,
+    'teal': $clr-teal,
+    'green': $clr-green,
+    'light-green': $clr-light-green,
+    'lime': $clr-lime,
+    'yellow': $clr-yellow,
+    'amber': $clr-amber,
+    'orange': $clr-orange,
+    'deep-orange': $clr-deep-orange,
+    'brown': $clr-brown
+);
+
+$clr-: unquote('$clr-');
+
+%textColorType {
+    &.primary {
+        @include color($--color-primary);
+    }
+
+    &.warning {
+        @include color($--color-warning);
+    }
+
+    &.info {
+        @include color($--color-info);
+    }
+
+    &.success {
+        @include color($--color-success);
+    }
+
+    &.danger {
+        @include color($--color-danger);
+    }
+
+    &.error {
+        @include color($--color-danger)
+    }
+
+    @each $key, $value in $color-list {
+        &.clr-#{$key} {
+            color: $value !important;
+        }
+
+        &.clr-#{$key}-lighter {
+            color: lighten($value, 20%) !important;
+        }
+    }
+}

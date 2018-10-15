@@ -1,0 +1,18 @@
+#brand-header {
+    @include box-sizing(border-box);
+    background-color: white;
+    border-bottom: 1px $clr-grey-300 solid;
+    z-index: 99;
+    padding: 0;
+}
+
+#brand-bar {
+    @include box-sizing(border-box);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+

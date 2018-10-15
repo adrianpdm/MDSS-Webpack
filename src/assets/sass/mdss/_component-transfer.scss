@@ -1,0 +1,33 @@
+.transfer-layout {
+
+    > .el-transfer-panel {
+        width: unset !important;
+    }
+
+    > .el-transfer-panel > .el-transfer-panel__header {
+        height: 100%;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        line-height: unset !important;
+    }
+
+    > .el-transfer-panel > .el-transfer-panel__header,
+    > .el-transfer-panel > .el-transfer-panel__body {
+
+        > .el-checkbox {
+            line-height: unset !important;
+
+            > .el-checkbox__input {
+                top: 2px;
+                vertical-align: middle;
+            }
+
+            > .el-checkbox__label {
+                font-size: 13px;
+                font-weight: 500;
+                vertical-align: middle;
+                line-height: unset;
+            }
+        }
+    }
+}

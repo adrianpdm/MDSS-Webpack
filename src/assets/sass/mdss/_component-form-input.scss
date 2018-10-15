@@ -1,0 +1,51 @@
+@mixin radioButtonStyle($font-size) {
+
+    .el-radio-button__inner {
+        font-size: $font-size;
+    }
+}
+
+.el-radio-button {
+    &__inner {
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    &--small {
+        @include radioButtonStyle(12px)
+    }
+}
+
+.el-select.collapse {
+    .el-select__tags {
+        left: 0;
+        right: 0;
+
+        > span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+
+            span.el-tag:first-child {
+                width: 110px;
+
+                > span.el-select__tags-text {
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -ms-text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
+                    vertical-align: middle;
+                    width: calc(100% - 16px);
+                }
+            }
+        }
+    }
+}
+
+.el-switch.is-mini > .el-switch__label * {
+    font-size: 12px;
+    vertical-align: middle;
+}

@@ -1,0 +1,25 @@
+.slideY-fade-enter-active, .slideY-fade-leave-active {
+    transition: all .5s ease-out;
+}
+
+.slideY-fade-enter {
+    transform: translateY(24px);
+    opacity: 0;
+}
+
+.slideY-fade-leave-to {
+    opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .3s ease;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-leave-to {
+    opacity: 0;
+}
+

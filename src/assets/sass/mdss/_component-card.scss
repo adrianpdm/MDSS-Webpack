@@ -1,0 +1,20 @@
+%cardShadow {
+    @include shadow-style();
+}
+
+.el-card.is-always-shadow {
+    @extend %cardShadow;
+}
+
+.el-card.is-hover-shadow {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    box-shadow: none;
+
+    &:hover, &:focus, &.is-active {
+        @extend %cardShadow;
+    }
+}

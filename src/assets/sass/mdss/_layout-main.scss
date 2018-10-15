@@ -1,0 +1,80 @@
+body {
+    color: $clr-grey-600;
+    font-size: 13px;
+    font-family: $font-family;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-width: 992px;
+    overflow-y: hidden;
+}
+
+*.is-focus, * > .is-focus {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    border-radius: unset;
+}
+
+.el-main {
+    padding: 0 !important;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.padded-content {
+    @include box-sizing(border-box);
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &-half {
+        padding: 8px;
+    }
+    &-double {
+        padding: 24px;
+    }
+}
+
+.vspace {
+    margin-top: 16px;
+    &-lg {
+        margin-top: 32px;
+    }
+    &-md {
+        margin-top: 20px;
+    }
+    &-sm {
+        margin-top: 8px;
+    }
+    &-xs {
+        margin-top: 4px;
+    }
+}
+
+.hspace {
+    margin-left: 12px;
+    &-lg {
+        margin-left: 32px;
+    }
+    &-md {
+        margin-left: 20px;
+    }
+    &-sm {
+        margin-left: 8px;
+    }
+    &-xs {
+        margin-left: 4px;
+    }
+}
+
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+

@@ -1,0 +1,28 @@
+@import "~material-design-color/material-color";
+@import "./mixins/vendor-prefixes";
+
+$font-family: "Heebo", Arial, sans-serif;
+$shadow-color: $clr-blue-grey-100;
+
+@mixin shadow-style($xOffset: 0px, $yOffset: 2px) {
+    @include box-shadow($xOffset $yOffset 12px 0 $shadow-color);
+}
+
+%container-title {
+    display: block;
+    font-size: 13px;
+    text-transform: none;
+    font-weight: 500;
+    color: $clr-grey-800;
+}
+
+%container-title-large {
+    @extend %container-title;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $clr-grey;
+    font-weight: 700;
+}
+
+

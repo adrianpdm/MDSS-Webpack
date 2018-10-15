@@ -1,0 +1,102 @@
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, a {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: $font-family;
+}
+
+[class^="el-icon-"], [class*=" el-icon-"], [class^="fa-"], [class*=" fa-"] {
+
+    &.huge {
+        font-size: 36px;
+    }
+
+    &.large {
+        font-size: 24px;
+    }
+
+    &.medium {
+        font-size: 18px;
+    }
+
+    @extend %textColorType;
+}
+
+span {
+    @extend %textColorType;
+}
+
+.formal-text {
+    $indentation: 32px;
+
+    @mixin title {
+        position: relative;
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    @mixin content-styling($--indent) {
+        > p {
+            margin: 0;
+            padding: 0;
+        }
+
+        > ol {
+            counter-reset: level-1;
+            display: table;
+            margin: 0;
+            padding: 0;
+        }
+
+        > ol > li {
+            counter-increment: level-1;
+            display: table-row;
+        }
+
+        > ol > li::before {
+            content: counter(level-1) ".";
+            display: table-cell;
+            text-align: left;
+            width: $--indent;
+        }
+
+        > div {
+            margin-bottom: 12px;
+        }
+    }
+
+    .formal-title {
+        counter-reset: per-title;
+        @include title;
+        margin-bottom: 12px;
+    }
+
+    .formal-subtitle {
+        @include title;
+        counter-increment: per-title;
+        display: table;
+        font-size: 15px;
+        margin-bottom: 6px;
+
+        &::before {
+            display: table-cell;
+            content: counter(per-title) ".";
+            width: $indentation;
+        }
+    }
+
+    > .formal-title ~ .formal-title {
+        margin-top: 16px;
+    }
+
+    @include content-styling($indentation);
+
+    .level-1 {
+        margin-left: $indentation;
+        @include content-styling($indentation);
+    }
+}
+
+.formal-text + .formal-text {
+    margin-top: 32px;
+}

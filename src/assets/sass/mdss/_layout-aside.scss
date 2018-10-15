@@ -1,0 +1,19 @@
+.tree-default .tree-children {
+    overflow: unset;
+}
+
+.tree-default .tree-disabled {
+    cursor: not-allowed;
+
+    > span {
+        color: $clr-grey-300;
+    }
+}
+
+.tree-default .tree-anchor.tree-selected {
+    background-color: $clr-orange-50;
+}
+
+.tree-default .tree-anchor.tree-hovered:not(.tree-selected, .tree-disabled) {
+    background-color: $clr-grey-100;
+}

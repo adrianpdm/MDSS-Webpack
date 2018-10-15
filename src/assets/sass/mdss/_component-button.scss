@@ -1,0 +1,99 @@
+@mixin my-button-shadow-style($color) {
+    //@include box-shadow(0 2px 6px -2px $color);
+
+    &:hover {
+        color: white;
+        background-color: lighten($color, 10%);
+        border-color: lighten($color, 10%);
+    }
+
+    &::after {
+        $this-shadow-color: transparentize($color, 0);
+        @include box-shadow(0 2px 12px 0px $this-shadow-color);
+        //@include box-shadow(none)
+    }
+}
+
+@mixin my-button-outline-style($color) {
+    background-color: white;
+    border-color: lighten($color, 20%);
+    color: $color;
+}
+
+@mixin my-button-default-style {
+    position: relative;
+    font-family: $font-family;
+    font-weight: 500;
+
+    &.shadow {
+        @include transition(0.2s, ease-in-out);
+        @include my-button-shadow-style($clr-blue-grey-300);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            //border-radius: 20px;
+            @include transition-opacity(0.2s, ease-in-out);
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &.el-button--primary {
+            @include my-button-shadow-style($--button-primary-fill);
+        }
+
+        &.el-button--info {
+            @include my-button-shadow-style($--button-info-fill);
+        }
+
+        &.el-button--success {
+            @include my-button-shadow-style($--button-success-fill);
+        }
+
+        &.el-button--warning {
+            @include my-button-shadow-style($--button-warning-fill);
+        }
+
+        &.el-button--danger {
+            @include my-button-shadow-style($--button-danger-fill);
+        }
+    }
+}
+
+.el-button {
+    @include my-button-default-style;
+}
+
+.el-button--outline {
+    @include my-button-outline-style($clr-blue-grey-500);
+    @include my-button-default-style;
+    color: $clr-blue-grey-500;
+
+    &.el-button--primary {
+        @include my-button-outline-style($--button-primary-fill);
+    }
+
+    &.el-button--info {
+        @include my-button-outline-style($--button-info-fill);
+    }
+
+    &.el-button--success {
+        @include my-button-outline-style($--button-success-fill);
+    }
+
+    &.el-button--warning {
+        @include my-button-outline-style($--button-warning-fill);
+    }
+
+    &.el-button--danger {
+        @include my-button-outline-style($--button-danger-fill);
+    }
+}
